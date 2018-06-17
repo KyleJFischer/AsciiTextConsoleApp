@@ -11,26 +11,33 @@ namespace ASCIITextProject
 {
     class Program
     {
+        public static string poopEmoji = @"░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ░░░░░░░░░░░░░░░▓████████▓░░░░░░░░░░░░░░░░ ░░░░░░░░░░░░░░▒█████████▓▒░░░░░░░░░░░░░░░ ░░░░░░░░░░░░░░░▓██▓▓▓▓▓▓███░░░░░░░░░░░░░░ ░░░░░░░░░░░░░░░▓██▓▓▓▓▓▓▓██▓░░░░░░░░░░░░░ ░░░░░░░░░░░░░░░░▓█▓▓▓▓▓▓▓▓█▓░░░░░░░░░░░░░ ░░░░░░░░░░░░░░░░▓█▓▓▓▓▓▓▓▓█▓▒░░░░░░░░░░░░ ░░░░░░░░░░░░░░░▓██▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░ ░░░░░░░░░░░▒▓▓█████▓▓▓▓▓▓▓▓██▓░░░░░░░░░░░ ░░░░░░░░░▓█████████▓▓▓▓▓▓▓▓███▓▒░░░░░░░░░ ░░░░░░░░▓███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████▓░░░░░░░░ ░░░░░░▒████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███▓░░░░░░░ ░░░░░░▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓░░░░░░ ░░░░░░▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓░░░░░░ ░░░░░░███▓▓▓█████▓▓▓▓▓▓▓█████▓▓▓██▓░░░░░░ ░░░░░░████▓█▓░░▒▓▓▓▓█▓██▓░░▒▓█▓███▓░░░░░░ ░░░░░▒█████▓░░░░▒▓█████▓░░░░▒▓█████▒░░░░░ ░░░░▓████▓▒░░▒█░░░▓███▒░░▒▓░░░▓█████▓░░░░ ░░▒▓███▓▓▓░░░██▒░░▒▓█▓░░░▓█▓░░░▓▓▓███▓▒░░ ░▓████▓▓▓▓▓░░░░░░░▓▓▓▓▒░░░░░░░▓▓▓▓▓████░░ ░███▓▓▓▓▓▓▓▓▒░░░▓▓▓▓▓▓▓▓▒░░░▓▓▓▓▓▓▓▓▓██▓░ ░███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓░ ░███▓▓▓▓▓░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░▓▓▓▓██▓░ ░███▓▓▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░▓▓▓▓██▓░ ░███▓▓▓▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓██▓░ ░█████▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░▓▓▓▓▓▓▓███▒░ ░▒█████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███▓█░░ ░░░▓████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████▒░░░ ░░░░▒▓█████████████████████████████▓▒░░░░ ░░░░░▒▓███████████████████████████▓░░░░░░";
+
         static void Main(string[] args)
         {
-            Console.Title = "If you can read this then good for you";
+            Console.Title = "If you can read this then good for you!";
             Console.ForegroundColor = ConsoleColor.Green;
-            //Thread.Sleep(2000);
+            Thread.Sleep(2000);
             DelayedPrintout("Hi Alyssa!");
             DelayedPrintout("Take your Iron Pill!");
-            DelayedPrintout("Also, Have a GREAT FUCKING day!");
+            DelayedPrintout("Also, Have a GREAT DAY!");
             DelayedPrintout(":)");
-
+            //DelayedPrintout(poopEmoji.Replace(" " ,Environment.NewLine));
             Console.ReadLine();
+        }
+        public static void DoAllTheStuff(String text)
+        {
+            var convertedText = FixString(text);
+
+            var AsciiArt = RetrieveAsciiText(convertedText);
+            DelayedPrintout(AsciiArt);
         }
 
         public static void DelayedPrintout(String text)
         {
-            var mainText = FixString(text);
 
-            var result = RetrieveAsciiText(mainText);
-            var temp = result.ToCharArray();
-            foreach (Char c in temp)
+            var characters = text.ToCharArray();
+            foreach (Char c in characters)
             {
                 Console.Write(c);
                 Thread.Sleep(2);
